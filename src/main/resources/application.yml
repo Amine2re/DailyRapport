@@ -1,0 +1,39 @@
+
+UPAY_MAIL_HOST: smtp.gmail.com
+UPAY_MAIL_PASS: fvcycwtzmesnlycy
+UPAY_MAIL_PORT: 25
+UPAY_MAIL_USER: atpstest.atpssn@gmail.com
+
+spring:
+  # ------- Datasource config
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  datasource:
+    url: jdbc:postgresql://${UPAY_BUSINESS_KEYCLOAK_DB_HOST}:${UPAY_BUSINESS_KEYCLOAK_DB_PORT}/${UPAY_BUSINESS_KEYCLOAK_DB_NAME}
+    username: ${UPAY_BUSINESS_KEYCLOAK_DB_USER}
+    password: ${UPAY_BUSINESS_KEYCLOAK_DB_PASS}
+
+mail:
+  host: ${UPAY_MAIL_HOST}
+  username: ${UPAY_MAIL_USER}
+  password: ${UPAY_MAIL_PASS}
+  port: ${UPAY_MAIL_PORT}
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+          required: true
+
+application:
+  clientApp:
+    email: ${UPAY_MAIL_USER}
+
+
